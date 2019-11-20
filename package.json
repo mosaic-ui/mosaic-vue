@@ -11,8 +11,6 @@
     "url": "github:mosaic-ui/vue-mosaic"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "rollup": "rm -rf dist && NODE_ENV=production rollup -c",
     "test": "vue-cli-service test:unit --require tests/setup.js --watch",
     "storybook": "start-storybook -p 6006 -s public",
