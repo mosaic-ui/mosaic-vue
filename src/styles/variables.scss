@@ -1,0 +1,142 @@
+/*
+   Page Layout
+   -----------------------------------------------------------------------------
+   NavMenu + Page components
+*/
+
+$nav-menu--size: 50px;
+$nav-menu--gutter: 16px;
+$nav-menu--bg: $c-pool;
+$nav-menu--bg-accent: $c-hydrogen;
+$nav-menu--breakpoint: 800px;
+
+$page--header-size: 66px;
+$page--gutter-xs: 12px;
+$page--gutter-sm: 20px;
+$page--gutter-md: 32px;
+$page--gutter-lg: 54px;
+$page--max-width: 1608px;
+$page--title-size: 21px;
+$page--title-weight: 400;
+$page--sub-title-size: 12px;
+$page--sub-title-weight: 500;
+$page--background: $g1-raven;
+
+/*
+   Motifs
+   -----------------------------------------------------------------------------
+   Goal is to re-use these variables as much as possible to ensure powerful
+   control over the UI kit proportions
+*/
+
+$mo-marg-a: 5px;
+$mo-marg-b: 10px;
+$mo-marg-c: 20px;
+$mo-marg-d: 40px;
+$mo-marg-e: 80px;
+$mo-marg-f: 160px;
+
+$mo-border: 1px;
+$mo-radius: 2px;
+$mo-radius-sm: $mo-radius - 1px;
+
+/*
+   Typography
+   -----------------------------------------------------------------------------
+*/
+
+$mo-text-font: 'Roboto', Helvetica, Arial, Tahoma, Verdana, sans-serif;
+$mo-code-font: 'RobotoMono', monospace;
+$mo-icon-font: 'icomoon';
+
+$mo-text-tiny: 11px;
+$mo-text-base: 12px;
+$mo-text-scale: 1.19;
+$mo-text-base-1: (ceil($mo-text-base * $mo-text-scale));
+$mo-text-base-2: (ceil($mo-text-base * $mo-text-scale * $mo-text-scale));
+$mo-text-base-3: (ceil($mo-text-base * $mo-text-scale * $mo-text-scale * $mo-text-scale));
+$mo-text-base-4: (ceil($mo-text-base * $mo-text-scale * $mo-text-scale * $mo-text-scale * $mo-text-scale));
+$mo-text-base-5: (ceil($mo-text-base * $mo-text-scale * $mo-text-scale * $mo-text-scale * $mo-text-scale * $mo-text-scale));
+
+$mo-text-default: $g13-mist;
+$mo-link-weight: 700;
+$mo-link-default: $c-pool;
+$mo-link-default-hover: $c-laser;
+$mo-link-success: $c-green;
+$mo-link-success-hover: $c-green;
+$mo-link-warning: $c-orange;
+$mo-link-warning-hover: $c-orange;
+$mo-text-secondary: $g18-cloud;
+$mo-text-secondary-hover: $g18-cloud;
+$mo-link-danger: $c-red;
+$mo-link-danger-hover:  $c-red;
+
+$mo-text-selection-bg: $c-pool;
+$mo-text-selection-color: $g20-white;
+
+/*
+   Form Element Sizing
+   -----------------------------------------------------------------------------
+   These ensure consistent sizing across elements such as Buttons, Radio,
+   Dropdown, Input, etc.
+*/
+
+$form-xs-height: 22px;
+$form-xs-padding: 6px;
+$form-xs-font: 11px;
+
+$form-sm-height: 30px;
+$form-sm-padding: 9px;
+$form-sm-font: 12px;
+
+$form-md-height: 38px;
+$form-md-padding: 12px;
+$form-md-font: 13px;
+
+$form-lg-height: 46px;
+$form-lg-padding: 15px;
+$form-lg-font: 17px;
+
+/*
+   Empty State
+   -----------------------------------------------------------------------------
+*/
+
+$empty-state-text: $g9-mountain;
+$empty-state-highlight: $g13-mist;
+
+/*
+   Input Styles
+   -----------------------------------------------------------------------------
+   These ensure consistent appearance across different kinds of inputs
+*/
+
+$mo-input--transition: background-color 0.25s ease, border-color 0.25s ease,
+color 0.25s ease,
+box-shadow 0.25s ease, color 0.25s ease;
+
+$mo-input-background--default: $g2-kevlar;
+$mo-input-background--focused: $g2-kevlar;
+$mo-input-background--hover: $g2-kevlar;
+$mo-input-background--disabled: $g3-castle;
+
+$mo-input-text--default: $g15-platinum;
+$mo-input-text--focused: $g20-white;
+$mo-input-text--hover: $g17-whisper;
+$mo-input-text--disabled: $g9-mountain;
+
+$mo-input-border--default: $g5-pepper;
+$mo-input-border--focused: $c-pool;
+$mo-input-border--hover: mix($mo-input-border--default, $mo-input-border--focused, 50%);
+$mo-input-border--disabled: $g4-onyx;
+
+/*$mo-input-border--error: mix($mo-input-border--default, $c-dreamsicle, 70%);
+$mo-input-border--error-hover: $c-dreamsicle;
+$mo-input-border--error-focused: $c-dreamsicle;*/
+
+$mo-input--field-z: 1;
+$mo-input--shadow-z: $mo-input--field-z + 1;
+$mo-input--status-z: $mo-input--shadow-z + 1;
+
+$mo-input--placeholder-text: $g9-mountain;
+
