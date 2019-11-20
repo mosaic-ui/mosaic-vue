@@ -5,7 +5,7 @@ set -e
 RELEASE_TYPE=${1:-patch}
 
 echo "Fetching git remotes"
-git fetch
+git fetch origin master
 
 if ! git status | grep -q 'On branch master'; then
   echo "Error! Must be on master branch to publish"
