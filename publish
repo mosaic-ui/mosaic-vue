@@ -35,6 +35,6 @@ echo "Tagging and publishing $RELEASE_TYPE release"
 yarn -s publish --$RELEASE_TYPE --access=public
 
 echo "Pushing git commit and tag"
-git push --follow-tags
+git push origin master --follow-tags
 
 echo "Publish successful!"
