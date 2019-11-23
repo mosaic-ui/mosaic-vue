@@ -125,5 +125,5 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../ButtonBase';
+  @import '../ButtonBase.scss';
 </style>
