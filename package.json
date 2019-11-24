@@ -1,6 +1,6 @@
 {
   "name": "@mosaic-ui/mosaic-vue",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "dist/mosaic-vue.umd.js",
   "module": "dist/mosaic-vue.esm.js",
