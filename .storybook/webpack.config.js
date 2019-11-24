@@ -24,7 +24,7 @@ module.exports = ({config}) => {
           },
         },
       ],
-      include: path.resolve(__dirname, '../'),
+      include: path.resolve(__dirname, '../src'),
     },
     {
       test: /\.(css|scss)$/,
@@ -35,12 +35,12 @@ module.exports = ({config}) => {
         {
           loader: 'sass-loader',
           options: {
-            implementation: require('node-sass'),
+            implementation: require('sass'),
             sourceMap: true,
           },
         },
       ],
-      include: path.resolve(__dirname, '../'),
+      include: path.resolve(__dirname, '../src'),
     },
     {
       test: /\.vue$/,
