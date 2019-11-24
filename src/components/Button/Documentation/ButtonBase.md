@@ -4,7 +4,7 @@ The Base Button is intended for custom use cases. It renders children inside its
 
 ### Usage
 ```javascript
-import {ButtonBase} from '@mosaic-ui/vue-mosaic'
+import {ButtonBase} from '@mosaic-ui/mosaic-vue'
 ```
 
 ### Example

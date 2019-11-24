@@ -1,14 +1,14 @@
 {
-  "name": "@mosaic-ui/vue-mosaic",
-  "version": "0.0.2",
+  "name": "@mosaic-ui/mosaic-vue",
+  "version": "0.0.0",
   "license": "MIT",
-  "main": "dist/vue-mosaic.umd.js",
-  "module": "dist/vue-mosaic.esm.js",
+  "main": "dist/mosaic-vue.umd.js",
+  "module": "dist/mosaic-vue.esm.js",
   "unpkg": "dist/index.min.js",
   "style": "dist/index.css",
   "repository": {
     "type": "git",
-    "url": "github:mosaic-ui/vue-mosaic"
+    "url": "github:mosaic-ui/mosaic-vue"
   },
   "scripts": {
     "rollup": "rm -rf dist && NODE_ENV=production rollup -c",

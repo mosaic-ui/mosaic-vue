@@ -1,4 +1,4 @@
-# vue-mosaic
+# mosaic-vue
 
 ## Project setup
 ```

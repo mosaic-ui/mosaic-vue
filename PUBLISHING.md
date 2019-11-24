@@ -1,4 +1,4 @@
-# Publishing a new version of Vue-Mosaic
+# Publishing a new version of Mosaic-Vue
 
 Ensure that 
 

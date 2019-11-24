@@ -38,7 +38,7 @@ export default create({
   inputBorderRadius: 4,
 
   brandTitle: 'Mosaic',
-  brandUrl: 'https://mosaic-ui.github.io/vue-mosaic',
+  brandUrl: 'https://mosaic-ui.github.io/mosaic-vue',
   brandImage: logo,
 
   addonActionsTheme: {
