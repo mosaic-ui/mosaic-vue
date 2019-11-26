@@ -14,18 +14,20 @@ const isProductionBuild = process.env.NODE_ENV === 'production'
 let plugins = [
   resolve(),
   commonjs(),
-  vue({
-    defaultLang: {
-      style: 'scss'
-    },
-    compiler: require('vue-template-compiler')
-  }),
   sass({
     output: 'dist/index.css',
     options: {
       outputStyle: isProductionBuild ? 'compressed' : 'expanded'
     }
   }),
+  vue({
+    defaultLang: {
+      style: 'scss'
+    },
+    css: false,
+    compiler: require('vue-template-compiler')
+  }),
+
   copy({
     targets: [{ src: 'src/styles/fonts', dest: 'dist' }]
   }),
