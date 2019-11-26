@@ -1,6 +1,9 @@
 {
   "name": "@mosaic-ui/mosaic-vue",
   "version": "0.0.1",
+  "authors": [
+    "Carlo Pati @carlopati <cp@carlopati.com> (https://github.com/deemaxx)"
+  ],
   "license": "MIT",
   "main": "dist/mosaic-vue.umd.js",
   "module": "dist/mosaic-vue.esm.js",
@@ -12,7 +15,7 @@
   },
   "scripts": {
     "rollup": "rm -rf dist && NODE_ENV=production rollup -c",
-    "test": "vue-cli-service test:unit --require tests/setup.js --watch",
+    "test": "vue-cli-service test:unit --require tests/setup.js",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -c .storybook"
   },
