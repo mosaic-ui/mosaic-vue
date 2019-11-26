@@ -35,18 +35,22 @@ module.exports = ({config}) => {
         {
           loader: 'sass-loader',
           options: {
-            implementation: require('sass'),
+            implementation: require('node-sass'),
             sourceMap: true,
           },
         },
       ],
-      include: path.resolve(__dirname, '../src'),
+      exclude: /node_modules/,
     },
     {
       test: /\.vue$/,
       loader: 'vue-docgen-loader',
       enforce: 'post'
     }
+  )
+
+  config.resolve.extensions.push(
+    'scss'
   )
 
   return config
