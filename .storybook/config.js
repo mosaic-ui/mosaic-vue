@@ -2,7 +2,7 @@ import { configure, addParameters, addDecorator } from '@storybook/vue'
 import mosaicTheme from './mosaicTheme'
 import {addReadme} from 'storybook-readme/vue'
 import { setDefaults } from 'storybook-addon-vue-info'
-import './Story.scss'
+import './story.scss'
 
 const decoratorVueTemplate = () => { return { template: `<div style="text-align:center"><story/></div>` }}
 addDecorator(decoratorVueTemplate)
