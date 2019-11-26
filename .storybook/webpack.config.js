@@ -14,7 +14,7 @@ module.exports = ({config}) => {
       loader: 'url-loader?limit=10000&mimetype=application/font-woff',
     },
     {
-      test: /\.(eot|png|eot|ttf|svg)(\?[a-z0-9#=&.]+)$/,
+      test: /\.(png|eot|ttf|svg)(\?[a-z0-9#=&.]+)$/,
       use: [
         {
           loader: 'file-loader',
