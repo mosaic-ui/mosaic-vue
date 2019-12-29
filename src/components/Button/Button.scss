@@ -1,0 +1,217 @@
+@import '../../styles/modules.scss';
+
+/*
+  Button Styles
+  ------------------------------------------------------------------------------
+*/
+
+.mo-button {
+  font-weight: 700;
+  font-family: $mo-text-font;
+  border-style: solid;
+  border-width: $mo-border;
+  transition:
+          background-color 0.25s ease,
+          border-color 0.25s ease,
+          box-shadow 0.25s ease,
+          color 0.25s ease;
+  outline: none;
+  border-radius: $mo-radius;
+  white-space: nowrap;
+  @extend %no-user-select;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &[disabled]:hover {
+    cursor: default;
+  }
+}
+
+.mo-button-icon {
+  margin-right: 0.4em;
+  margin-left: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateY(-5%);
+  pointer-events: none;
+
+  .mo-button--label + & {
+    margin-right: -0.1em;
+    margin-left: 0.4em;
+  }
+
+  &:only-child {
+    margin: 0;
+  }
+}
+
+/*
+  Size Modifiers
+  ------------------------------------------------------------------------------
+*/
+@mixin buttonSizeModifier($fontSize, $padding, $height) {
+  font-size: $fontSize;
+  padding: 0 $padding;
+  height: $height;
+  line-height: $height - ($mo-border * 2);
+
+  .mo-button-spinner {
+    width: $height * 0.5;
+    height: $height * 0.5;
+  }
+
+  .mo-button-icon {
+    font-size: floor($fontSize * 1.25);
+  }
+}
+
+.mo-button-xs {
+  @include buttonSizeModifier($form-xs-font, $form-xs-padding, $form-xs-height);
+}
+.mo-button-sm {
+  @include buttonSizeModifier($form-sm-font, $form-sm-padding, $form-sm-height);
+}
+.mo-button-md {
+  @include buttonSizeModifier($form-md-font, $form-md-padding, $form-md-height);
+}
+.mo-button-lg {
+  @include buttonSizeModifier($form-lg-font, $form-lg-padding, $form-lg-height);
+}
+
+/*
+  Shape Modifiers
+  ------------------------------------------------------------------------------
+*/
+.mo-button-square {
+  padding: 0;
+  text-align: center;
+
+  &.mo-button-xs {
+    width: $form-xs-height;
+  }
+  &.mo-button-sm {
+    width: $form-sm-height;
+  }
+  &.mo-button-md {
+    width: $form-md-height;
+  }
+  &.mo-button-lg {
+    width: $form-lg-height;
+  }
+}
+
+.mo-button-stretch {
+  width: 100%;
+}
+
+/*
+  Color Modifiers
+  ------------------------------------------------------------------------------
+*/
+@mixin buttonColorModifier($bg, $bgHover, $bgActive, $text, $textHover) {
+  color: $text;
+  background-color: $bg;
+  border-color: $bg;
+
+  &:hover {
+    color: $textHover;
+    background-color: $bgHover;
+    border-color: $bgHover;
+  }
+
+  &:active,
+  &:focus,
+  &:active:hover,
+  &.active,
+  &.active:hover {
+    color: $textHover;
+    background-color: $bgHover;
+    border-color: $bgActive;
+    box-shadow: 0 0 4px 1px $bg;
+  }
+
+  &.mo-button--loading,
+  &.mo-button--loading:hover {
+    background-color: $bgHover;
+    border-color: $bgHover;
+    box-shadow: 0 0 0 0;
+  }
+
+  &.mo-button--disabled,
+  &.mo-button--disabled:hover,
+  &.mo-button--disabled:focus {
+    color: rgba($text, 0.3);
+    font-style: italic;
+    background-color: mix($bg, $g4-onyx, 25%);
+    border-color: mix($bg, $g4-onyx, 25%);
+    box-shadow: none;
+  }
+
+  .mo-button-spinner {
+    border-color: rgba($text, 0.25);
+    border-top-color: $text;
+  }
+}
+
+.mo-button-default {
+  @include buttonColorModifier($g5-pepper, $g6-smoke, $g7-graphite, $g14-chromium, $g18-cloud);
+}
+.mo-button-primary {
+  @include buttonColorModifier($c-pool, $c-laser, $c-hydrogen, $c-yeti, $g20-white);
+}
+.mo-button-secondary {
+  @include buttonColorModifier($c-star, $c-comet, $c-potassium, $c-twilight, $g20-white);
+}
+.mo-button-success {
+  @include buttonColorModifier($c-rainforest, $c-honeydew, $c-wasabi, $c-mint, $g20-white);
+}
+.mo-button-warning {
+  @include buttonColorModifier($c-pineapple, $c-thunder, $c-daisy, $g20-white, $g20-white);
+}
+.mo-button-danger {
+  @include buttonColorModifier($c-curacao, $c-dreamsicle, $c-tungsten, $g20-white, $g20-white);
+}
+
+/*
+  Loading State
+  ------------------------------------------------------------------------------
+*/
+.mo-button--loading,
+.mo-button--loading:hover,
+.mo-button--loading:active,
+.mo-button--loading:active:hover,
+.mo-button--loading[disabled],
+.mo-button--loading[disabled]:hover {
+  color: transparent;
+  position: relative;
+}
+
+/*
+  Loading Spinner
+  ------------------------------------------------------------------------------
+*/
+
+@keyframes ButtonSpinner {
+  0% {
+    transform: translate(-50%,-50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%,-50%) rotate(360deg);
+  }
+}
+
+.mo-button-spinner {
+  pointer-events: none;
+  border-style: solid;
+  border-radius: 50%;
+  animation-duration: 0.85s;
+  animation-name: ButtonSpinner;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-width: $mo-border;
+}

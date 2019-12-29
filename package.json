@@ -1,17 +1,17 @@
 {
-  "name": "@mosaic-ui/mosaic-vue",
+  "name": "@mosaic-ui/vue-mosaic",
   "version": "0.0.1",
   "authors": [
     "Carlo Pati @carlopati <cp@carlopati.com> (https://github.com/deemaxx)"
   ],
   "license": "MIT",
-  "main": "dist/mosaic-vue.umd.js",
-  "module": "dist/mosaic-vue.esm.js",
+  "main": "dist/vue-mosaic.umd.js",
+  "module": "dist/vue-mosaic.esm.js",
   "unpkg": "dist/index.min.js",
   "style": "dist/index.css",
   "repository": {
     "type": "git",
-    "url": "github:mosaic-ui/mosaic-vue"
+    "url": "github:mosaic-ui/vue-mosaic"
   },
   "scripts": {
     "rollup": "rm -rf dist && NODE_ENV=production rollup -c",
@@ -69,6 +69,7 @@
     "storybook-addon-jsx": "^7.1.13",
     "storybook-addon-vue-info": "^1.3.3",
     "storybook-readme": "^5.0.8",
+    "style-resources-loader": "^1.3.3",
     "vue": "^2.6.10",
     "vue-docgen-api": "^3.26.0",
     "vue-docgen-loader": "^1.0.1",

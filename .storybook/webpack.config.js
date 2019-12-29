@@ -24,7 +24,7 @@ module.exports = ({config}) => {
           },
         },
       ],
-      include: path.resolve(__dirname, '../src'),
+      include: path.resolve(__dirname, '../'),
     },
     {
       test: /\.(css|scss)$/,
@@ -40,7 +40,7 @@ module.exports = ({config}) => {
           },
         },
       ],
-      exclude: /node_modules/,
+      include: path.resolve(__dirname, '../'),
     },
     {
       test: /\.vue$/,

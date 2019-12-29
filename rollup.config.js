@@ -14,12 +14,6 @@ const isProductionBuild = process.env.NODE_ENV === 'production'
 let plugins = [
   resolve(),
   commonjs(),
-  sass({
-    output: 'dist/index.css',
-    options: {
-      outputStyle: isProductionBuild ? 'compressed' : 'expanded'
-    }
-  }),
   vue({
     defaultLang: {
       style: 'scss'
@@ -27,7 +21,12 @@ let plugins = [
     css: false,
     compiler: require('vue-template-compiler')
   }),
-
+  sass({
+    output: 'dist/index.css',
+    options: {
+      outputStyle: isProductionBuild ? 'compressed' : 'expanded'
+    }
+  }),
   copy({
     targets: [{ src: 'src/styles/fonts', dest: 'dist' }]
   }),

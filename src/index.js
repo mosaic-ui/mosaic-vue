@@ -1,9 +1,11 @@
 import './styles/index.scss'
 
-import ButtonBase from './components/Button/Base/ButtonBase.vue'
+import MoButtonBase from './components/Button/Base/ButtonBase.vue'
+import MoButton from './components/Button/Composed/Button.vue'
 
 const components = [
-  ButtonBase
+  MoButtonBase,
+  MoButton
 ]
 
 const install = function(Vue, opts = {}) {
@@ -19,5 +21,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   version: '0.0.1',
   install,
-  ButtonBase
+  MoButtonBase,
+  MoButton,
 }

@@ -4,13 +4,15 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
 import { mapEnumKeys } from '../../../utils/storybook'
 import { withInfo } from 'storybook-addon-vue-info'
+import marked from 'marked'
 
 // Components
-import ButtonBase from '../Base/ButtonBase'
+import MoButtonBase from '../Base/ButtonBase.vue'
+import MoButton from '../Composed/Button.vue'
 
 // Notes
 import ButtonBaseReadme from './ButtonBase.md'
-import marked from 'marked'
+import ButtonReadme from './Button.md'
 
 // Types
 import {
@@ -19,17 +21,20 @@ import {
   ButtonShape,
   ComponentStatus,
   ButtonType,
-  ButtonText
+  ButtonText,
+  IconFont
 } from '../../../types'
 
-const stories = storiesOf('Components|Buttons/Button Base', module)
-stories.addDecorator(withKnobs)
-stories.addDecorator(withInfo)
+const buttonBaseStories = storiesOf('Components|Buttons', module)
+buttonBaseStories.addDecorator(withKnobs)
+buttonBaseStories.addDecorator(withInfo)
 
-stories.add(
-  'default',
+buttonBaseStories.add(
+  'Base Button',
   () => ({
-    components: {ButtonBase},
+    components: {
+      MoButtonBase
+    },
     props: {
       active: {
         type: Boolean,
@@ -64,24 +69,30 @@ stories.add(
         default: text('titleText', 'Save Record')
       }
     },
-    template: `<div class="story--example">
-      <button-base
-        :active="active"
-        @click="log"
-        :titleText="titleText"
-        :color="color"
-        :shape="shape"
-        :status="status"
-        :type="buttonType"
-        :size="size">
-        {{ buttonText }}
-      </button-base>
-    </div>`,
+    template: `
+      <div class="story--example">
+        <mo-button-base
+            @click="logClick"
+            @mouseout="logMouseOut"
+            @mouseleave="logMouseLeave"
+            @mouseover="logMouseOver"
+            @mouseenter="logMouseEnter"
+            :active="active"
+            :color="color"
+            :shape="shape"
+            :size="size"
+            :status="status"
+            :title-text="titleText"
+            :type="buttonType">
+          {{ buttonText }}
+        </mo-button-base>
+      </div>`,
     methods: {
-      log: e => {
-        e.preventDefault()
-        action('click')(e.target)
-      }
+      logClick: action('click'),
+      logMouseEnter: action('mouseenter'),
+      logMouseOver: action('mouseover'),
+      logMouseOut: action('mouseout'),
+      logMouseLeave: action('mouseleave')
     }
   }),
   {
@@ -89,7 +100,102 @@ stories.add(
       sidebar: marked(ButtonBaseReadme)
     },
     info: {
-      summary: 'Summary for MyComponent'
+      summary: 'Summary for Button base'
+    }
+  }
+)
+
+const buttonComposedStories = storiesOf('Components|Buttons', module)
+buttonComposedStories.addDecorator(withKnobs)
+buttonComposedStories.addDecorator(withInfo)
+
+buttonComposedStories.add(
+  'Standard Button',
+  () => ({
+      components: {
+        MoButton
+      },
+      props: {
+        active: {
+          type: Boolean,
+          default: boolean('active', false)
+        },
+        buttonType: {
+          type: String,
+          default: ButtonType[select('buttonType', mapEnumKeys(ButtonType), 'Submit')]
+        },
+        className: {
+          type: String,
+          default: text('className', '')
+        },
+        color: {
+          type: String,
+          default: ComponentColor[select('color', mapEnumKeys(ComponentColor), 'Default')]
+        },
+        icon: {
+          type: String,
+          default: IconFont[select('icon', mapEnumKeys(Object.assign({ None: 'none' }, IconFont)), 'None')]
+        },
+        placeIconAfterText: {
+          type: Boolean,
+          default: boolean('placeIconAfterText', false)
+        },
+        shape: {
+          type: String,
+          default: ButtonShape[select('shape', mapEnumKeys(ButtonShape), 'Default')]
+        },
+        size: {
+          type: String,
+          default: ComponentSize[select('size', mapEnumKeys(ComponentSize), 'Small')]
+        },
+        status: {
+          type: String,
+          default: ComponentStatus[select('status', mapEnumKeys(ComponentStatus), 'Default')]
+        },
+        text: {
+          type: String,
+          default: ButtonText[select('buttonText', mapEnumKeys(ButtonText), 'Default')]
+        },
+        titleText: {
+          type: String,
+          default: text('titleText', 'Save Record')
+        }
+      },
+      template: `
+        <div class="story--example">
+          <mo-button
+              @click="logClick"
+              @mouseenter="logMouseEnter"
+              @mouseover="logMouseOver"
+              @mouseout="logMouseOut"
+              @mouseleave="logMouseLeave"
+              :active="active"
+              :color="color"
+              :icon="icon"
+              :place-icon-after-text="placeIconAfterText"
+              :shape="shape"
+              :size="size"
+              :status="status"
+              :text="text"
+              :title-text="titleText"
+              :type="buttonType">
+          </mo-button>
+        </div>`,
+      methods: {
+        logClick: action('click'),
+        logMouseEnter: action('mouseenter'),
+        logMouseOver: action('mouseover'),
+        logMouseOut: action('mouseout'),
+        logMouseLeave: action('mouseleave')
+      }
+    }
+  ),
+  {
+    readme: {
+      sidebar: marked(ButtonReadme)
+    },
+    info: {
+      summary: 'Summary for Button'
     }
   }
 )
