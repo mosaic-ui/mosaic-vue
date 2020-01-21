@@ -5,10 +5,10 @@ module.exports = ({config}) => {
   updateWebpackConfig(config)
 
   config.module.rules.push(
-    // {
-    //   resourceQuery: /blockType=docs/,
-    //   use: ['storybook-readme/vue/docs-loader', 'html-loader', 'markdown-loader'],
-    // },
+    {
+      resourceQuery: /blockType=docs/,
+      use: ['storybook-readme/vue/docs-loader', 'html-loader', 'markdown-loader'],
+    },
     {
       test: /\.woff(2)?(\?[a-z0-9#=&.]+)$/,
       loader: 'url-loader?limit=10000&mimetype=application/font-woff',
@@ -46,6 +46,12 @@ module.exports = ({config}) => {
       test: /\.vue$/,
       loader: 'vue-docgen-loader',
       enforce: 'post'
+    },
+    {
+      test: /\.(stories|story)\.js$/,
+      loader: require.resolve('@storybook/source-loader'),
+      exclude: [/node_modules/],
+      enforce: 'pre',
     }
   )
 
