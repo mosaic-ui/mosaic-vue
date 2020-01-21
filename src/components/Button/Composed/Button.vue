@@ -5,21 +5,11 @@
       @mouseleave="onMouseLeave"
       @mouseover="onMouseOver"
       @mouseout="onMouseOut"
-      :active="active"
-      :button-type="buttonType"
-      :class-name="className"
-      :color="color"
-      :id="cid"
-      :shape="shape"
-      :size="size"
-      :status="status"
-      :tab-index="tabIndex"
-      :test-id="testID"
-      :title-text="titleText">
+      v-bind="$props">
     <mo-icon-and-text
         :icon="icon"
         :place-icon-after-text="placeIconAfterText"
-        :text="text">
+        :text="buttonText">
     </mo-icon-and-text>
     <div v-if="loading" :class="spinnerClass"/>
   </mo-button-base>
@@ -35,8 +25,7 @@
     ButtonType,
     ComponentColor,
     ComponentSize,
-    ComponentStatus,
-    IconFont
+    ComponentStatus
   } from '../../../types'
 
   export default {
@@ -106,7 +95,7 @@
         type: String,
         default: 'button'
       },
-      text: {
+      buttonText: {
         type: String,
         default: ButtonText.Default
       },
