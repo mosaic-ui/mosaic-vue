@@ -3,13 +3,13 @@
     <span class="mo-button-label">{{ text }}</span>
     <icon
         :glyph="icon"
-        :class-name="'mo-button-icon'">
+        :class-name="'mo-button__icon'">
     </icon>
   </div>
   <div v-else>
     <icon
         :glyph="icon"
-        :class-name="'mo-button-icon'">
+        :class-name="'mo-button__icon'">
     </icon>
     <span class="mo-button-label">{{ text }}</span>
   </div>

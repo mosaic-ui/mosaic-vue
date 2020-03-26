@@ -24,6 +24,7 @@ import {
 const iconBaseStories = storiesOf('Utility Elements|Icons', module)
 iconBaseStories.addDecorator(withKnobs)
 iconBaseStories.addDecorator(withInfo)
+iconBaseStories.addParameters({ component: MoIcon })
 
 iconBaseStories.add(
   'Icon',
