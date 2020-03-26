@@ -2,7 +2,8 @@
   <mo-square-button></mo-square-button>
 </template>
 <script>
-  import MoSquareButton from './SquareButton'
+  import MoSquareButton from './SquareButton.vue'
+
   export default {
     name: 'MoDismissButton',
     components: {

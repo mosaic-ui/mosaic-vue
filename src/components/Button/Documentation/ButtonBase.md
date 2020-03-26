@@ -7,7 +7,7 @@ The Base Button is intended for custom use cases. It renders children inside its
 import { MoButtonBase } from '@mosaic-ui/mosaic-vue'
 ```
 
-### Example
+<!-- ### Example -->
 <!-- STORY -->
 
 <!-- STORY HIDE START -->

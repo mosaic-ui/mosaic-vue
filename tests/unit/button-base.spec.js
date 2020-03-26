@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import MoButtonBase from '../../src/components/Button/Base/ButtonBase.vue'
 
-describe('ButtonBase tests', () => {
+describe('ButtonBase', () => {
   it('renders props.buttonText when passed', () => {
     const buttonText = 'Delete'
     const wrapper = mount(MoButtonBase, {
@@ -15,7 +15,7 @@ describe('ButtonBase tests', () => {
     const wrapper = mount(MoButtonBase, {
       propsData: { shape }
     })
-    expect(wrapper.classes()).toContain(`mo-button-${shape}`)
+    expect(wrapper.classes()).toContain(`mo-button-square`)
   })
 
   it('successfully applies click event', () => {

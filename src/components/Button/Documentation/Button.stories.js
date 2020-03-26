@@ -28,6 +28,7 @@ import {
 const buttonBaseStories = storiesOf('Components|Buttons', module)
 buttonBaseStories.addDecorator(withKnobs)
 buttonBaseStories.addDecorator(withInfo)
+buttonBaseStories.addParameters({ component: MoButtonBase })
 
 buttonBaseStories.add(
   'Base Button',
@@ -108,6 +109,7 @@ buttonBaseStories.add(
 const buttonComposedStories = storiesOf('Components|Buttons', module)
 buttonComposedStories.addDecorator(withKnobs)
 buttonComposedStories.addDecorator(withInfo)
+buttonComposedStories.addParameters({ component: MoButton })
 
 buttonComposedStories.add(
   'Standard Button',
