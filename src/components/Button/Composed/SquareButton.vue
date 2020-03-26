@@ -4,6 +4,7 @@
 
 <script>
   import MoButtonBase from '../Base/ButtonBase.vue'
+
   export default {
     name: 'MoSquareButton',
     components: {
