@@ -3,13 +3,15 @@ import commonjs from 'rollup-plugin-commonjs'
 import sourceMaps from 'rollup-plugin-sourcemaps'
 import { terser } from 'rollup-plugin-terser'
 import gzip from 'rollup-plugin-gzip'
-import sass from 'rollup-plugin-sass'
+import scss from 'rollup-plugin-scss'
 import copy from 'rollup-plugin-copy'
 import vue from 'rollup-plugin-vue'
 import cleanup from 'rollup-plugin-cleanup'
+import postcss from 'rollup-plugin-postcss'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
 
 const pkg = require('./package.json')
-const isProductionBuild = process.env.NODE_ENV === 'production'
 
 let plugins = [
   resolve(),
@@ -19,25 +21,51 @@ let plugins = [
       style: 'scss'
     },
     css: false,
-    compiler: require('vue-template-compiler')
+    compiler: require('vue-template-compiler'),
+    style: {
+      postcssOptions: {
+        minimize: true
+      },
+      postcssPlugins: [
+        autoprefixer,
+        cssnano({
+          preset: ['default', {
+            discardComments: {
+              removeAll: true,
+            },
+          }]
+        })
+      ]
+    }
   }),
-  sass({
+  scss({
     output: 'dist/index.css',
     options: {
-      outputStyle: isProductionBuild ? 'compressed' : 'expanded'
+      outputStyle: 'compressed'
     }
+  }),
+  postcss({
+    minimize: {
+      preset: ['default', {
+        discardComments: {
+          removeAll: true,
+        },
+      }]
+    },
+    extensions: ['css, scss'],
+    plugins: [
+      autoprefixer(),
+      cssnano(),
+    ]
   }),
   copy({
     targets: [{ src: 'src/styles/fonts', dest: 'dist' }]
   }),
   cleanup({ comments: 'none' }),
-  sourceMaps()
+  sourceMaps(),
+  terser(),
+  gzip()
 ]
-
-// Minify and compress output when in production
-if (isProductionBuild) {
-  plugins = [...plugins, terser(), gzip()]
-}
 
 const input = 'src/index.js'
 
