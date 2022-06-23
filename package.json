@@ -44,7 +44,7 @@
     "eslint-plugin-vue": "^6.0.1",
     "expect": "^24.9.0",
     "file-loader": "^4.2.0",
-    "jsdom": "^15.2.1",
+    "jsdom": "^16.5.0",
     "jsdom-global": "^3.0.2",
     "marked": "^0.7.0",
     "node-sass": "^4.13.0",
